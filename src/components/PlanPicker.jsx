@@ -3,6 +3,12 @@ import Controls from "./Controls";
 import PlanCard from "./PlanCard";
 import Summary from "./Summary";
 
+const plans = [
+	{ name: "Starter", price: 199, storage: "10 GB storage", support: "Email support" },
+	{ name: "Team", price: 499, storage: "100 GB storage", support: "Chat support" },
+	{ name: "Business", price: 999, storage: "1000 GB storage", support: "Phone support" },
+];
+
 function PlanPicker() {
 	const [seats, setSeats] = useState(1);
 	const [months, setMonths] = useState(1);
@@ -33,30 +39,9 @@ function PlanPicker() {
 			</div>
 
 			<main className="grid grid-cols-3 gap-8 px-20 pt-10">
-				<PlanCard
-					name="Starter"
-					price={199}
-					storage="10 GB storage"
-					support="Email support"
-					seats={seats}
-					months={months}
-				/>
-				<PlanCard
-					name="Team"
-					price={499}
-					storage="100 GB storage"
-					support="Chat support"
-					seats={seats}
-					months={months}
-				/>
-				<PlanCard
-					name="Business"
-					price={999}
-					storage="1000 GB storage"
-					support="Phone support"
-					seats={seats}
-					months={months}
-				/>
+				{plans.map((plan) => (
+					<PlanCard key={plan.name} {...plan} seats={seats} months={months} />
+				))}
 			</main>
 		</>
 	);
