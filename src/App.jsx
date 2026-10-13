@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import PlanPicker from "./components/PlanPicker";
 import Footer from "./components/Footer";
+import Waitlist from "./components/Waitlist";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <Navbar />
 
       <PlanPicker />
+
+      <Waitlist />
 
       <Footer />
     </div>
